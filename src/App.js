@@ -1,14 +1,17 @@
+import Footer from "./components/template/Footer";
 import Header from "./components/template/Header";
 import Main from "./components/template/Main";
-import Navbar from "./components/template/Navbar";
+import Sidebar from "./components/template/Sidebar";
 
 function App() {
   return (
-    <div className="dash">
-      <Navbar/>
-      <div className="dash-app">
-        <Header/>
-        <Main/>
+    <div className="wrapper sidebar_minimize">
+      <Header></Header>
+      {/* Sidebar */}
+      <Sidebar></Sidebar>
+      <div className="main-panel">
+        <Main></Main>
+        <Footer></Footer>
       </div>
     </div>
   );
