@@ -1,19 +1,11 @@
-import Footer from "./components/template/Footer";
-import Header from "./components/template/Header";
-import Main from "./components/template/Main";
-import Sidebar from "./components/template/Sidebar";
+import Home from "./components/Home";
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="wrapper sidebar_minimize">
-      <Header></Header>
-      {/* Sidebar */}
-      <Sidebar></Sidebar>
-      <div className="main-panel">
-        <Main></Main>
-        <Footer></Footer>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Route exact path="/" component={Home}/>
+    </BrowserRouter>
   );
 }
 
