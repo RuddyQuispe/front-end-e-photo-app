@@ -38,12 +38,12 @@ export default class Sidebar extends Component {
                                     <ul className="nav nav-collapse">
                                         <li>
                                             <Link>
-                                                <span className="sub-item">Dashboard 1</span>
+                                                <span className="sub-item">Photographer User</span>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link>
-                                                <span className="sub-item">Dashboard 2</span>
+                                                <span className="sub-item">Organizer Event User</span>
                                             </Link>
                                         </li>
                                     </ul>
@@ -58,60 +58,15 @@ export default class Sidebar extends Component {
                             <li className="nav-item">
                                 <a data-toggle="collapse" href="#base">
                                     <i class="fa fa-briefcase"/>
-                                    <p><small>Photo Studio Management</small></p>
+                                    <p><small>Photo Studio</small></p>
                                     <span className="caret" />
                                 </a>
                                 <div className="collapse" id="base">
                                     <ul className="nav nav-collapse">
                                         <li>
-                                            <a href="../components/avatars.html">
-                                                <span className="sub-item">Avatars</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/buttons.html">
-                                                <span className="sub-item">Buttons</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/gridsystem.html">
-                                                <span className="sub-item">Grid System</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/panels.html">
-                                                <span className="sub-item">Panels</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/notifications.html">
-                                                <span className="sub-item">Notifications</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/sweetalert.html">
-                                                <span className="sub-item">Sweet Alert</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/font-awesome-icons.html">
-                                                <span className="sub-item">Font Awesome Icons</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/simple-line-icons.html">
-                                                <span className="sub-item">Simple Line Icons</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/flaticons.html">
-                                                <span className="sub-item">Flaticons</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../components/typography.html">
-                                                <span className="sub-item">Typography</span>
-                                            </a>
+                                            <Link to="/photo_studio_manage">
+                                                <span className="sub-item">Photo Studio Manage</span>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>

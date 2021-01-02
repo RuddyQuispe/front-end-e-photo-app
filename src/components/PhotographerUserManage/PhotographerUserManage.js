@@ -1,56 +1,19 @@
-import axios from 'axios';
-import React, { Component } from 'react';
-import config from '../../config/config';
-import FooterOut from '../template/others/FooterOut';
-import HeaderOut from '../template/others/HeaderOut';
+import React, { Component } from 'react'
+import FooterOut from '../template/others/FooterOut'
+import HeaderOut from '../template/others/HeaderOut'
 
-
-export default class OrganizeUserManage extends Component {
-
-    state = {
-        name : "",
-        phone: "",
-        email: "",
-        password: ""
-    }
-
-    handleOnClick = async () => {
-        const response = await axios.post(`${config.host}/api/auth/signup/0`,this.state);
-        console.log(response.data);
-        const {token, message} = response.data;
-        alert(message);
-        if (!token) {
-            alert("Error");
-        }
-    }
-
-    onChangeName = (e) => {
-        this.setState({name : e.target.value});
-    }
-
-    onChangeEmail = (e) => {
-        this.setState({email : e.target.value});
-    }
-
-    onChangePhone = (e) => {
-        this.setState({phone : e.target.value});
-    }
-
-    onChangePassword = (e) => {
-        this.setState({passwd : e.target.value});
-    }
-
+export default class PhotographerUserManage extends Component {
     render() {
         return (
-            <div className="wrapper overlay-sidebar">
+            <div class="wrapper overlay-sidebar">
                 <HeaderOut />
-                <div className="main-panel">
+                <div class="main-panel">
                     <div className="content">
                         <div className="panel-header bg-primary-gradient">
                             <div className="page-inner py-5">
                                 <div className="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                                     <div>
-                                        <h2 className="text-white pb-2 fw-bold">Register Event Organizer User</h2>
+                                        <h2 className="text-white pb-2 fw-bold">Register Photographer User</h2>
                                         <h5 className="text-white op-7 mb-2">E-photo-App Software</h5>
                                     </div>
                                 </div>
@@ -64,8 +27,10 @@ export default class OrganizeUserManage extends Component {
                                             <div className="card-head-row">
                                                 <div className="card-title">New Account</div>
                                                 <div className="card-tools">
-                                                    <button className="btn btn-info btn-border btn-round btn-sm mr-2" onClick={this.handleOnClick}>
-                                                        Create Account
+                                                    <button className="btn btn-info btn-border btn-round btn-sm mr-2">
+                                                        <span className="btn-label">
+                                                            <i className="fa fa-pencil" />
+                                                        </span>Create Account
                                                     </button>
                                                 </div>
                                             </div>
@@ -74,25 +39,25 @@ export default class OrganizeUserManage extends Component {
                                             <div className="form-group form-inline">
                                                 <label htmlFor="inlineinput" className="col-md-3 col-form-label">Name</label>
                                                 <div className="col-md-9 p-0">
-                                                    <input type="text" className="form-control input-full" id="inlineinput" placeholder="Enter name" onChange={this.onChangeName}/>
+                                                    <input type="text" className="form-control input-full" id="inlineinput" placeholder="Enter name" />
                                                 </div>
                                             </div>
                                             <div className="form-group form-inline">
                                                 <label htmlFor="inlineinput" className="col-md-3 col-form-label">Email</label>
                                                 <div className="col-md-9 p-0">
-                                                    <input type="email" className="form-control input-full" id="inlineinput" placeholder="Enter email" onChange={this.onChangeEmail}/>
+                                                    <input type="email" className="form-control input-full" id="inlineinput" placeholder="Enter email" />
                                                 </div>
                                             </div>
                                             <div className="form-group form-inline">
                                                 <label htmlFor="inlineinput" className="col-md-3 col-form-label">Phone</label>
                                                 <div className="col-md-9 p-0">
-                                                    <input type="number" className="form-control input-full" id="inlineinput" minLength="8" placeholder="Enter name" onChange={this.onChangePhone} />
+                                                    <input type="number" className="form-control input-full" id="inlineinput" minLength="8" placeholder="Enter name" />
                                                 </div>
                                             </div>
                                             <div className="form-group form-inline">
                                                 <label htmlFor="inlineinput" className="col-md-3 col-form-label">Password</label>
                                                 <div className="col-md-9 p-0">
-                                                    <input type="password" className="form-control input-full" id="inlineinput" minLength="6" placeholder="Password" onChange={this.onChangePassword} />
+                                                    <input type="password" className="form-control input-full" id="inlineinput" minLength="6" placeholder="Password" />
                                                 </div>
                                             </div>
                                         </div>
