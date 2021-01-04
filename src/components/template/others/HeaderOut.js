@@ -5,7 +5,7 @@ export default class HeaderOut extends Component {
         return (
             <div className="main-header">
                 <div className="logo-header" data-background-color="blue2">
-                    <div href="index.html" className="logo">
+                    <div className="logo">
                         <img src="./assets/img/logo.svg" alt="navbar brand" className="navbar-brand" />
                     </div>
                 </div>

@@ -8,18 +8,12 @@ export default class FooterOut extends Component {
                     <nav className="pull-left">
                         <ul className="nav">
                             <li className="nav-item">
-                                <a className="nav-link" href="https://www.themekita.com">ThemeKita</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Help</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Licenses</a>
+                                <div className="nav-link">ThemeKita</div>
                             </li>
                         </ul>
                     </nav>
                     <div className="copyright ml-auto">
-                        2018, made with <i className="fa fa-heart heart text-danger" /> by <a href="https://www.themekita.com">ThemeKita</a>
+                        2018, made with <i className="fa fa-heart heart text-danger" /> by ThemeKita
                     </div>
                 </div>
             </footer>

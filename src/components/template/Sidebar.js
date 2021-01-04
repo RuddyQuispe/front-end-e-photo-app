@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 export default class Sidebar extends Component {
+
+    constructor(){
+        super();
+        let jsonUser = JSON.parse(sessionStorage.getItem("USER_AUTH"));
+        this.state = {
+            email: jsonUser.email,
+            type: jsonUser.type
+        }
+    }
+
     render() {
         return (
             <div className="sidebar sidebar-style-2">
@@ -13,7 +23,7 @@ export default class Sidebar extends Component {
                             </div>
                             <div className="info">
                                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-                                    <span>Hizrian<span className="user-level">Administrator</span><span className="caret" /></span>
+                                    <span>{this.state.email}<span className="user-level">{this.state.type}</span><span className="caret" /></span>
                                 </a>
                                 <div className="clearfix" />
                                 <div className="collapse in" id="collapseExample">
@@ -37,12 +47,12 @@ export default class Sidebar extends Component {
                                 <div className="collapse" id="dashboard">
                                     <ul className="nav nav-collapse">
                                         <li>
-                                            <Link>
+                                            <Link to='/photographer_user_list'>
                                                 <span className="sub-item">Photographer User</span>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link>
+                                            <Link to='/event_organizer_user_list'>
                                                 <span className="sub-item">Organizer Event User</span>
                                             </Link>
                                         </li>
@@ -57,7 +67,7 @@ export default class Sidebar extends Component {
                             </li>
                             <li className="nav-item">
                                 <a data-toggle="collapse" href="#base">
-                                    <i class="fa fa-briefcase"/>
+                                    <i className="fa fa-briefcase"/>
                                     <p><small>Photo Studio</small></p>
                                     <span className="caret" />
                                 </a>
@@ -73,7 +83,7 @@ export default class Sidebar extends Component {
                             </li>
                             <li className="nav-item">
                                 <a data-toggle="collapse" href="#sidebarLayouts">
-                                    <i class="fas fa-images"/>
+                                    <i className="fas fa-images"/>
                                     <p><small>Photography Management</small></p>
                                     <span className="caret" />
                                 </a>

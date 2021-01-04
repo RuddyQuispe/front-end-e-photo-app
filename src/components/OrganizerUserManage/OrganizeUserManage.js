@@ -14,13 +14,21 @@ export default class OrganizeUserManage extends Component {
         password: ""
     }
 
-    handleOnClick = async () => {
+    handleRegisterAccountOrganizerUser = async () => {
         const response = await axios.post(`${config.host}/api/auth/signup/0`,this.state);
         console.log(response.data);
         const {token, message} = response.data;
         alert(message);
         if (!token) {
             alert("Error");
+        }else{
+            console.log(`token: ${token}`);
+            window.sessionStorage.setItem("USER_AUTH",JSON.stringify({
+                token: response.data.token,
+                email: this.state.email,
+                type: "Organizer User"
+            }));
+            this.props.history.push("/");
         }
     }
 
@@ -64,7 +72,7 @@ export default class OrganizeUserManage extends Component {
                                             <div className="card-head-row">
                                                 <div className="card-title">New Account</div>
                                                 <div className="card-tools">
-                                                    <button className="btn btn-info btn-border btn-round btn-sm mr-2" onClick={this.handleOnClick}>
+                                                    <button className="btn btn-info btn-border btn-round btn-sm mr-2" onClick={this.handleRegisterAccountOrganizerUser}>
                                                         Create Account
                                                     </button>
                                                 </div>
