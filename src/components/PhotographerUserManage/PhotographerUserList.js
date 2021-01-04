@@ -40,6 +40,57 @@ export default class PhotographerUserList extends Component {
 
     }
 
+    renderSocialLink(arrayRedSocial){
+        return arrayRedSocial.map(link_social => {
+            const listDescription = link_social.split(',');
+            let redSocial = listDescription[0].replace("(","").replace(`"`,'').replace(`"`,'');
+            let link = listDescription[1].replace(")","");
+            switch (redSocial) {
+                case "1":
+                    return (
+                        <a href={link}>
+                            <button type="button" className="btn btn-icon btn-round btn-primary" to={link}>
+                                <i className="fab fa-facebook" />
+                            </button>
+                        </a>
+                    );
+                case "2":
+                    return (
+                        <a href={link}>
+                            <button type="button" className="btn btn-icon btn-round btn-info" to={link}>
+                                <i className="fab fa-twitter" />
+                            </button>
+                        </a>
+                    );
+                case "3":
+                    return (
+                        <a href={link}>
+                            <button type="button" className="btn btn-icon btn-round btn-warning" to={link}>
+                                <i className="fab fa-instagram" />
+
+                            </button>
+                        </a>
+                    );
+                case "4":
+                    return (
+                        <a href={link}>
+                            <button type="button" className="btn btn-icon btn-round btn-default">
+                                <i className="fab fa-tumblr-square" />
+                            </button>
+                        </a>
+                    );
+                default:
+                    return (
+                        <a href={link}>
+                            <button type="button" className="btn btn-icon btn-link">
+                                <i className="fa fa-link" />
+                            </button>
+                        </a>
+                    );
+            }
+        })
+    }
+
     renderListPhotographerUser() {
         return this.state.list_users_photographer.map(user_photographer => {
             let button;
@@ -58,6 +109,7 @@ export default class PhotographerUserList extends Component {
                     <td>{user_photographer.name}</td>
                     <td>{user_photographer.email}</td>
                     <td>{user_photographer.name_studio}</td>
+                    <td>{this.renderSocialLink(user_photographer.array)}</td>
                     <td>{user_photographer.status? 'Active' : 'Locked'}</td>
                     <td>{button}</td>
                 </tr>
@@ -102,6 +154,7 @@ export default class PhotographerUserList extends Component {
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Email</th>
                                                             <th scope="col">Photo Studio</th>
+                                                            <th scope="col">Red Social</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">Options</th>
                                                         </tr>
