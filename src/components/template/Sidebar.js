@@ -78,6 +78,11 @@ export default class Sidebar extends Component {
                                                 <span className="sub-item">Photo Studio Manage</span>
                                             </Link>
                                         </li>
+                                        <li>
+                                            <Link to={this.state.type==="Organizer User"? "/event_manage_organizer" : "/event_manage_studio"}>
+                                                <span className="sub-item">Event Manage</span>
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>

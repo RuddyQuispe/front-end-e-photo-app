@@ -5,6 +5,7 @@ import config from '../../config/config'
 import Footer from '../template/Footer'
 import Header from '../template/Header'
 import Sidebar from '../template/Sidebar'
+import MapView from './MapView'
 
 export default class PhotoStudioManage extends Component {
 
@@ -222,6 +223,9 @@ export default class PhotoStudioManage extends Component {
                                     </div>
                                 </div>
                             </div>
+                            {/* <MapView
+                            data= {this.state.list_studios}
+                            /> */}
                         </div>
                     </div>
                     <Footer />

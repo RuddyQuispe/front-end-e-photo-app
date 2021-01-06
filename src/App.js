@@ -9,6 +9,8 @@ import ConfirmKey from "./components/Login/ConfirmKey";
 import PhotographerUserList from "./components/PhotographerUserManage/PhotographerUserList";
 import OrganizeUserList from "./components/OrganizerUserManage/OrganizeUserList";
 import NewPassword from "./components/Login/NewPassword";
+import EventManageStudio from "./components/EventManage/EventManageStudio";
+import EventRegisterOrganizer from "./components/EventManage/EventRegisterOrganizer";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route exact path="/photographer_user_manage" component={PhotographerUserManage}/>
       <Route exact path="/photographer_user_list" component={PhotographerUserList}/>
       <Route exact path="/photo_studio_manage" component={PhotoStudioManage}/>
+      <Route exact path="/event_manage_studio" component={EventManageStudio}/>
+      <Route exact path="/event_manage_organizer" component={EventRegisterOrganizer}/>
     </BrowserRouter>
   );
 }
