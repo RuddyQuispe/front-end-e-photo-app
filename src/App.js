@@ -11,6 +11,8 @@ import OrganizeUserList from "./components/OrganizerUserManage/OrganizeUserList"
 import NewPassword from "./components/Login/NewPassword";
 import EventManageStudio from "./components/EventManage/EventManageStudio";
 import EventRegisterOrganizer from "./components/EventManage/EventRegisterOrganizer";
+import PhotographyUpload from "./components/PhotographyManage/PhotographyUpload";
+import PhotographyList from "./components/PhotographyManage/PhotographyList";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Route exact path="/photo_studio_manage" component={PhotoStudioManage}/>
       <Route exact path="/event_manage_studio" component={EventManageStudio}/>
       <Route exact path="/event_manage_organizer" component={EventRegisterOrganizer}/>
+      <Route exact path="/photography_manage/:code_event" component={PhotographyUpload}/>
+      <Route exact path="/event_manage/:code_event" component={PhotographyList}/>
     </BrowserRouter>
   );
 }

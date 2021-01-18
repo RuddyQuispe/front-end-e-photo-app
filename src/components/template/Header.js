@@ -39,35 +39,6 @@ export default class Header extends Component {
                                     <h5>{this.state.type}</h5>
                                 </div>
                             </li>
-                            <li className="nav-item dropdown hidden-caret">
-                                <Link className="dropdown-toggle profile-pic" data-toggle="dropdown" aria-expanded="false">
-                                    <div className="avatar-sm">
-                                        <img src="./assets/img/mlane.jpg" alt="..." className="avatar-img rounded-circle" />
-                                    </div>
-                                </Link>
-                                <ul className="dropdown-menu dropdown-user animated fadeIn">
-                                    <div className="dropdown-user-scroll scrollbar-outer">
-                                        <li>
-                                            <div className="user-box">
-                                                <div className="avatar-lg"><img src="./assets/img/mlane.jpg" alt="image profile" className="avatar-img rounded" /></div>
-                                                <div className="u-text">
-                                                    <h4>{this.state.type}</h4>
-                                                    <p className="text-muted">{this.state.email}</p>
-                                                    <Link className="btn btn-xs btn-secondary btn-sm">
-                                                        View Profile
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="dropdown-divider" />
-                                            <Link className="dropdown-item">My Profile</Link>
-                                            <div className="dropdown-divider" />
-                                            <button className="dropdown-item" onClick={()=> alert("Logout")}>Logout</button>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </nav>

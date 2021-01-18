@@ -34,24 +34,38 @@ export default class EventManageStudio extends Component {
     renderListEvent() {
         return this.state.list_events.map(event => {
             let button;
-            if (!event.status_request) {
-                button = <div>
-                    Accepted <i class="fa fa-check" aria-hidden="true"></i>
-                </div>;
+            if (event.status_request) {
+                button = <>
+                    <td>
+                    <div className="text-success">
+                        Accepted <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                    </td>
+                    <td>
+                        <Link type="button" className="btn btn-sm btn-info" to={`/event_manage/${event.code}`}>
+                            <i className="fas fa-images"></i> See Photos
+                        </Link>
+                    </td>
+                    <td>
+                        <Link type="button" className="btn btn-sm btn-secondary" to={`/photography_manage/${event.code}`}>
+                        <i className="fas fa-cloud-upload-alt"></i> Upload Photos
+                        </Link>
+                    </td>
+                </>;
             } else {
-                button = <button type="button" className="btn btn-block btn-sm btn-success" onClick={() => this.handleAccept(event.code)} >
+                button = <td> <button type="button" className="btn btn-block btn-sm btn-success" onClick={() => this.handleAccept(event.code)} >
                     Accept
-                </button>;
+                </button></td>;
             }
             return (
                 <tr key={event.code}>
                     <td>{event.code}</td>
                     <td>{event.description}</td>
-                    <td>{event.date_event}</td>
+                    <td>{event.date_event.substring(0, event.date_event.indexOf('T'))}</td>
                     <td>{event.name}</td>
                     <td>{event.studio_name}</td>
-                    <td>{event.status_request? 'Active': 'Denied'}</td>
-                    <td>{button}</td>
+                    <td>{event.status_request ? 'Active' : 'Denied'}</td>
+                    {button}
                 </tr>
             );
         })
@@ -64,12 +78,12 @@ export default class EventManageStudio extends Component {
             url: `${config.host}/api/event_manage/${code}`
         });
         console.log(response.data);
-        var divContents = document.getElementById("printdivcontent").innerHTML;  
-        var printWindow = window.open('', '', 'height=400,width=400');  
-        printWindow.document.write(response.data);  
+        var divContents = document.getElementById("printdivcontent").innerHTML;
+        var printWindow = window.open('', '', 'height=400,width=400');
+        printWindow.document.write(response.data);
         printWindow.document.write(divContents);
-        printWindow.document.close();  
-        printWindow.print();  
+        printWindow.document.close();
+        printWindow.print();
     }
 
     render() {
@@ -114,6 +128,8 @@ export default class EventManageStudio extends Component {
                                                             <th scope="col">Photo Studio</th>
                                                             <th scope="col">Status</th>
                                                             <th scope="col">Actions</th>
+                                                            <th ></th>
+                                                            <th ></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

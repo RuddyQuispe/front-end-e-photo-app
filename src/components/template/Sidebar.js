@@ -18,9 +18,6 @@ export default class Sidebar extends Component {
                 <div className="sidebar-wrapper scrollbar scrollbar-inner">
                     <div className="sidebar-content">
                         <div className="user">
-                            <div className="avatar-sm float-left mr-2">
-                                <img src="./assets/img/mlane.jpg" alt="..." className="avatar-img rounded-circle" />
-                            </div>
                             <div className="info">
                                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                     <span>{this.state.email}<span className="user-level">{this.state.type}</span><span className="caret" /></span>
@@ -95,29 +92,9 @@ export default class Sidebar extends Component {
                                 <div className="collapse" id="sidebarLayouts">
                                     <ul className="nav nav-collapse">
                                         <li>
-                                            <a href="../sidebar-style-1.html">
-                                                <span className="sub-item">Sidebar Style 1</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../overlay-sidebar.html">
-                                                <span className="sub-item">Overlay Sidebar</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../compact-sidebar.html">
-                                                <span className="sub-item">Compact Sidebar</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../static-sidebar.html">
-                                                <span className="sub-item">Static Sidebar</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="../icon-menu.html">
-                                                <span className="sub-item">Icon Menu</span>
-                                            </a>
+                                            <Link to='/photography_manage'>
+                                                <span className="sub-item">Photography Manage</span>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
