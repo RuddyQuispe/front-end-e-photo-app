@@ -84,6 +84,7 @@ export default class EventManageStudio extends Component {
         printWindow.document.write(divContents);
         printWindow.document.close();
         printWindow.print();
+        await this.getListEvent();
     }
 
     render() {

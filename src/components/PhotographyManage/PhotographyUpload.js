@@ -13,15 +13,14 @@ export default class PhotographyUpload extends Component {
         let jsonUser = JSON.parse(sessionStorage.getItem("USER_AUTH"));
         this.state = {
             list_photos: [],
-            code_event: 0,
             price: 0.0,
             email: jsonUser.email
         };
     }
 
-    savePhoto = (file) => {
+    savePhoto = (fileName) => {
         let listPhotosPartial = this.state.list_photos;
-        listPhotosPartial.push(file);
+        listPhotosPartial.push(fileName);
         this.setState({
             list_photos: listPhotosPartial
         });
@@ -38,29 +37,41 @@ export default class PhotographyUpload extends Component {
     eventHandlers = {
         addedfile: async (file) => {
             console.log(file);
-            // this.savePhoto(file);
+            let formData = new FormData();
+            console.log("sending");
+            console.log(file);
+            formData.append('photos', file);
+            console.log(formData);
+            const response = await axios({
+                url: 'http://localhost:5000/upload',
+                headers: { 'content-type': 'multipart/form-data' },
+                method: 'post',
+                data: formData
+            });
+            await this.savePhoto(response.data.list_photos_name);
+            alert(`listen file: ${response.data.list_photos_name} for upload`);
+            console.log(this.state.list_photos);
         }
     }
 
     onChangePrice = (e) => {
         this.setState({
-            price : e.target.value
+            price: e.target.value
         });
     }
 
     handleUploadPhoto = async (e) => {
         e.preventDefault();
-        let formData = new FormData();
         console.log("sending");
-        console.log(this.state.list_photos);
-        formData.append('photos', this.state.list_photos);
-        formData.append('price', this.state.price);
-        formData.append('photos', this.state.email);
         const response = await axios({
-            url: 'http://localhost:5000/upload',
-            headers: { 'content-type': 'multipart/form-data' },
+            url: 'http://localhost:5000/api/photography_manage/upload_photography',
             method: 'post',
-            data: formData
+            data: {
+                image_name_list: this.state.list_photos,
+                price: this.state.price,
+                code_event: this.props.match.params.code_event,
+                email_user_photographer: this.state.email
+            }
         });
         alert(response.data.message);
     }
