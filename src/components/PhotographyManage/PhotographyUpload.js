@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import config from '../../config/config';
 import Footer from '../template/Footer'
 import Header from '../template/Header'
 import Sidebar from '../template/Sidebar'
@@ -43,7 +44,7 @@ export default class PhotographyUpload extends Component {
             formData.append('photos', file);
             console.log(formData);
             const response = await axios({
-                url: 'http://localhost:5000/upload',
+                url: `${config.host}/upload`,
                 headers: { 'content-type': 'multipart/form-data' },
                 method: 'post',
                 data: formData
@@ -64,7 +65,7 @@ export default class PhotographyUpload extends Component {
         e.preventDefault();
         console.log("sending");
         const response = await axios({
-            url: 'http://localhost:5000/api/photography_manage/upload_photography',
+            url: `${config.host}/api/photography_manage/upload_photography`,
             method: 'post',
             data: {
                 image_name_list: this.state.list_photos,

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import config from '../../config/config';
 import Footer from '../template/Footer'
 import Header from '../template/Header'
 import Sidebar from '../template/Sidebar'
@@ -16,7 +17,7 @@ export default class PhotographyList extends Component {
 
     async getListPhotographies(){
         const response = await axios({
-            url: `http://localhost:5000/api/photography_manage/list_photographies/${this.props.match.params.code_event}`,
+            url: `${config.host}/api/photography_manage/list_photographies/${this.props.match.params.code_event}`,
             method: 'get',
         });
         this.setState({
